@@ -54,7 +54,7 @@ input[type='submit']:hover,input[type='button']:hover {
     color: var(--purple);
 }
 
-p {
+main p {
     width: 100%; 
     text-align: center; 
     border-bottom: 1px solid #000; 
@@ -104,6 +104,22 @@ textarea {
 #out:hover {
     background-color: white;
     color: var(--purple);
+}
+
+#allPosts {
+    background-color: white;
+    padding: 15px;
+    border: solid black 1px;
+    border-radius: 10px;
+    width: 50%;
+    margin: auto;
+    position: relative; 
+}
+
+#author {
+    position: absolute;
+    top: 45px;
+    right: 20px;
 }
 
 /* Slider stuff below */
