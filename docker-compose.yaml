@@ -1,0 +1,28 @@
+version: '3'
+services:
+  api:
+    image: node:12.18.4
+    ports:
+      - 3000:3000
+    environment:
+      - DB_CONNECTION=mongodb://posts-admin:posts-pass@db:27017
+      - DB_NAME=posts
+    volumes:
+      - type: bind
+        source: ./api
+        target: /code
+    working_dir: /code
+    command: bash -c "npm install && npm run dev"
+    depends_on: 
+      - db
+  db:
+    image: mongo:latest
+    environment: 
+      - MONGO_INITDB_ROOT_USERNAME=posts-admin
+      - MONGO_INITDB_DATABASE=posts
+      - MONGO_INITDB_ROOT_PASSWORD=posts-pass
+    volumes:
+      - "dbdata:/var/lib/mongodb/data"
+      - "./db/seed.js:/docker-entrypoint-initdb.d/seed.js:ro"
+volumes:
+  dbdata:
