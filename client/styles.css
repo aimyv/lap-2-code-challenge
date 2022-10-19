@@ -91,6 +91,21 @@ textarea {
     width: 15%;
 }
 
+#out {
+    background-color: var(--purple);
+    color: white;
+    border: solid white 1px;
+    width: 10%;
+    position: absolute;
+    top: 20px;
+    right: 10px;
+}
+
+#out:hover {
+    background-color: white;
+    color: var(--purple);
+}
+
 /* Slider stuff below */
 
 /* The switch - the box around the slider */
