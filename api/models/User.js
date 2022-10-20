@@ -4,7 +4,7 @@ const { init } = require('../initdb');
 class User {
     constructor(data) {
         this.id = data._id
-        this.name = data.name
+        this.username = data.username
         this.email = data.email
     }
 

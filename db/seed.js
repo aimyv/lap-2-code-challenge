@@ -11,6 +11,6 @@ db.posts.insertMany([
 db.users.drop()
 
 db.users.inserMany([
-    {name: "Sean", email: "cheese@wer.com"},
-    {name: "Will", email: "will@w123.com"}
+    {username: "Sean", email: "cheese@wer.com", password: "killingtonswiss"},
+    {username: "Will", email: "will@w123.com", password: "123321gogogo"}
 ])
