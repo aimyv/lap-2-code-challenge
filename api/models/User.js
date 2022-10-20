@@ -21,6 +21,35 @@ class User {
             }
         })
     }
+
+    static findByName(name){
+        return new Promise (async (resolve, reject) => {
+            try {
+                const db = await init()
+                const dbData = await db.collection('users').find({}).toArray()
+                const user = dbData.filter((user) => user.name == name)[0];
+                if (!user) { throw new Error('No User here!') }
+                resolve(new User(user));
+            } catch (err) {
+                reject(`Error retrieving user: ${err.message}`)
+            }
+        })
+    }
+
+    static create(user){
+        return new Promise (async (resolve, reject) => {
+            try {
+                const db = await init()
+                const newUser = new User({
+                    ...user
+                })
+                const dbData = await db.collection('users').insertOne(newUser)
+                resolve(dbData);
+            } catch (err) {
+                reject(`Error adding user: ${err.message}`)
+            }
+        })
+    }
 }
 
 module.exports = User
