@@ -27,7 +27,7 @@ hr {
     border: solid black 0.5px;
 }
 
-form#registerForm {
+form:not(#makePost) {
     display: flex;
     flex-direction: column;
 }
