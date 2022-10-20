@@ -106,21 +106,21 @@ textarea {
     color: var(--purple);
 }
 
-#allPosts {
+.post { /*allPosts*/
     background-color: white;
-    padding: 15px;
+    padding: 5px 15px;
     border: solid black 1px;
     border-radius: 10px;
     width: 50%;
-    margin: auto;
+    margin: 15px auto;
     position: relative; 
 }
 
-#author {
+/* .author {
     position: absolute;
     top: 45px;
     right: 20px;
-}
+} */
 
 /* Slider stuff below */
 

@@ -1,6 +1,8 @@
 const makePost = document.getElementById('makePost');
 makePost.addEventListener('submit', handlePost);
 
+const feed = document.getElementById('allPosts')
+
 async function handlePost(e) {
     e.preventDefault()
     const title = e.target.title.value
@@ -9,6 +11,33 @@ async function handlePost(e) {
     console.log(title, content, toggle)
     post(title, content, toggle)
 }
+
+async function getFeed() {
+    let rawData = await fetch(`http://localhost:3000/posts`)
+    const data = await rawData.json()
+    const length = data.data.length
+    data.data.forEach(p => {
+        let div = document.createElement('div')
+        div.classList.add('post')
+
+        let title = document.createElement('h1')
+        let anon = document.createElement('em')
+        let content = document.createElement('p')
+        anon.classList.add('author')
+
+        title.textContent = p.title
+        content.textContent = p.body
+        anon.textContent = p.pseudonym
+
+        div.appendChild(title)
+        div.appendChild(anon)
+        div.appendChild(content)
+
+        feed.appendChild(div)
+    })
+}
+
+getFeed()
 
 const post = async (title, content, toggle) => {
     let author;
