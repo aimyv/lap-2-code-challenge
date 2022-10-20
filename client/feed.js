@@ -16,7 +16,7 @@ async function getFeed() {
     let rawData = await fetch(`http://localhost:3000/posts`)
     const data = await rawData.json()
     const length = data.data.length
-    data.data.forEach(p => {
+    data.data.reverse().forEach(p => {
         let div = document.createElement('div')
         div.classList.add('post')
 
