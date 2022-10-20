@@ -1,4 +1,4 @@
-const Post = require('../models/User')
+const User = require('../models/User')
 
 async function index (req, res) {
     try {

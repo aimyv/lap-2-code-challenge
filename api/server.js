@@ -10,5 +10,6 @@ const userRoutes = require('./routes/users')
 
 server.get('/', (req, res) => res.send('Hello Sean and Aimy'))
 server.use('/posts', postRoutes)
+server.use('/users', userRoutes)
 
 module.exports = server;

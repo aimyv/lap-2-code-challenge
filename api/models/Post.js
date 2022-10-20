@@ -13,7 +13,7 @@ class Post {
         return new Promise (async (res, rej) => {
             try {
                 const db = await init()
-                const postData = await db.collection('posts').find({}).toArray()
+                const postData = await db.collection('post').find({}).toArray()
                 const posts = postData.map(d => new Post(d))
                 if (!posts.length) {throw new Error ('No Posts to display')}
                 res(posts)
@@ -28,7 +28,7 @@ class Post {
             try {
                 const db = await init()
                 let newPost = {title: title, pseudonym: pseudonym, body: body}
-                const postData = await db.collection('posts').insertOne(newPost)
+                const postData = await db.collection('post').insertOne(newPost)
                 res(newPost)
             } catch (err) {
                 rej(`Error retrieving posts: ${err.message}` )
@@ -40,7 +40,7 @@ class Post {
         return new Promise (async (res, rej) => {
             try {
                 const db = await init()
-                const postData = await db.collection('posts').find({'pseudonym': name}).toArray()
+                const postData = await db.collection('post').find({'pseudonym': name}).toArray()
                 const posts = postData.map(d => new Post(d))
                 if (!posts.length) {throw new Error ('No Posts to display')}
                 res(posts)
