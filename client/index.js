@@ -9,8 +9,13 @@ async function handleLogin(e) {
 }
 
 const fetchUser = async (username, password) => {
-    const data = await fetch(`http://localhost:3000/users/${username}`)
-    const user = await data.json()
-    if (user.data.password == password) {location.href = './feed.html'}
-    else {console.log('Incorrect password')}
+    try {
+        const data = await fetch(`http://localhost:3000/users/${username}`)
+        if (data.status == 500) {throw new Error('user does not exist')}
+        const user = await data.json()
+        if (user.data.password == password) {location.href = './feed.html'}
+        else {throw new Error('Incorrect password')}
+    } catch (err) {
+        alert(err)
+    }
 }
