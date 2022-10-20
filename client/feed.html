@@ -7,20 +7,20 @@
     <link rel="icon"  href="./img/favicon.ico"/>
     <link rel="icon" type="image/png" href="/favicon.png"/>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="./index.js"></script>
+    <script defer src="./feed.js"></script>
     <title>stash. | feed</title>
 </head>
 <body>
     <h1>stash.</h1>
-    <div id="makePost">
-        <input type="text" placeholder="Title">
-        <textarea name="post" id="" placeholder="Content"></textarea>
+    <form id="makePost">
+        <input type="text" id="title" placeholder="Title">
+        <textarea name="post" id="content" placeholder="Content"></textarea>
         <label class="switch">
-            <input type="checkbox">
+            <input type="checkbox" id="toggle">
             <span class="slider round"></span>
         </label>
         <input id="publish" type="submit" value="Publish">
-    </div>
+    </form>
     <input id="out" type="button" value="Log Out" onclick="window.location.href='./index.html';">
     <br>
     <div id="allPosts">
