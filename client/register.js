@@ -10,6 +10,14 @@ async function handleRegister(e) {
     postUser(email, username, password)
 }
 const postUser = async (email, username, password) => {
+    const findName =  await fetch(`http://localhost:3000/users/${username}`)
+    console.log(findName.status)
+
+    if(findName.status === 200){
+        alert('Username is not available.');
+        return;
+    }
+
     await fetch(`http://localhost:3000/users`, {
         method: 'POST',
         headers: {
