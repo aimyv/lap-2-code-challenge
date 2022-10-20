@@ -11,4 +11,5 @@
 ## Usage
 
 - Open index.html in the client folder with live server to see the frontend.
-- Run `docker compose up` to start the backend.
+- Run `docker-compose up` or `bash scripts/start.sh` to start the backend.
+- Run `bash scripts/stop.sh` to tear everything down.
