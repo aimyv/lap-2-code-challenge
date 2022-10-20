@@ -10,6 +10,7 @@ async function handlePost(e) {
     const toggle = e.target.toggle.checked
     console.log(title, content, toggle)
     post(title, content, toggle)
+    location.reload()
 }
 
 async function getFeed() {
