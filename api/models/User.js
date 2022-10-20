@@ -6,6 +6,7 @@ class User {
         this.id = data._id
         this.username = data.username
         this.email = data.email
+        this.password = data.password
     }
 
     static get all () {
@@ -22,12 +23,12 @@ class User {
         })
     }
 
-    static findByName(name){
+    static findByName(username){
         return new Promise (async (resolve, reject) => {
             try {
                 const db = await init()
                 const dbData = await db.collection('users').find({}).toArray()
-                const user = dbData.filter((user) => user.name == name)[0];
+                const user = dbData.filter((user) => user.username == username)[0];
                 if (!user) { throw new Error('No User here!') }
                 resolve(new User(user));
             } catch (err) {
