@@ -3,7 +3,14 @@ loginForm.addEventListener('submit', handleLogin);
 
 async function handleLogin(e) {
     e.preventDefault()
-    const email = e.target.lemail.value
+    const username = e.target.lusername.value
     const password = e.target.lpassword.value
-    console.log(email, password)
+    fetchUser(username, password)
+}
+
+const fetchUser = async (username, password) => {
+    const data = await fetch(`http://localhost:3000/users/${username}`)
+    const user = await data.json()
+    if (user.data.password == password) {location.href = './feed.html'}
+    else {console.log('Incorrect password')}
 }
