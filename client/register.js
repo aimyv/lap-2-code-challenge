@@ -7,4 +7,19 @@ async function handleRegister(e) {
     const username = e.target.rusername.value
     const password = e.target.rpassword.value
     console.log(email, password, username)
+    postUser(email, username, password)
+}
+const postUser = async (email, username, password) => {
+    await fetch(`http://localhost:3000/users`, {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            "email": email,
+            "username": username,
+            "password": password,
+        })
+    })
+    console.log('posted user!')
 }
