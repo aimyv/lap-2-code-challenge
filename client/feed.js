@@ -27,11 +27,11 @@ async function getFeed() {
 
         title.textContent = p.title
         content.textContent = p.body
-        anon.textContent = p.pseudonym
+        anon.textContent = `~ ${p.pseudonym}`
 
         div.appendChild(title)
-        div.appendChild(anon)
         div.appendChild(content)
+        div.appendChild(anon)
 
         feed.appendChild(div)
     })
