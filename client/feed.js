@@ -43,6 +43,8 @@ const post = async (title, content, toggle) => {
     let author;
     if(toggle) {
         author = 'anonymous'
+    } else {
+        author = localStorage.getItem('username')
     }
     await fetch(`http://localhost:3000/posts`, {
         method: 'POST',
