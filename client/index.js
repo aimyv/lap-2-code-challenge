@@ -15,6 +15,7 @@ const fetchUser = async (username, password) => {
         const user = await data.json()
         if (user.data.password == password) {location.href = './feed.html'}
         else {throw new Error('Incorrect password')}
+        localStorage.setItem('username', username)
     } catch (err) {
         alert(err)
     }
