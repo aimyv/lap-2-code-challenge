@@ -16,11 +16,13 @@ main {
     border-radius: 20px;
     text-align: center;
     background-color: var(--orange);
-    width: 50%;
+    width: 30%;
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 hr {
@@ -32,11 +34,26 @@ form:not(#makePost) {
     flex-direction: column;
 }
 
-input {
+label {
+    text-align: left;
+    font-size: 150%;
+}
+
+input:not(#login, #register, #register2) {
+    font-family: 'Poppins', sans-serif;
+    vertical-align: top;
+    margin: 10px 0;
+    /* width: 50%; */
+    border: solid black 1px;
+    border-radius: 5px;
+    font-size: 25px;
+}
+
+#login, #register, #register2 {
     font-family: 'Poppins', sans-serif;
     vertical-align: top;
     margin: 5px auto;
-    width: 50%;
+    width: 30%;
     border: solid black 1px;
     border-radius: 5px;
     font-size: 25px;
