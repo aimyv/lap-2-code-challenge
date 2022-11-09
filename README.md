@@ -6,10 +6,35 @@ This application allows users to share their thoughts with others. It consists o
 
 ## Installation
 
-- Clone or download this repo.
+- Download this repository or clone it by entering `git clone https://github.com/aimyv/lap-2-code-challenge.git` in your terminal.
+- Navigate to the `lap-2-code-challenge` repository and open it in your favourite IDE - we used Visual Studio Code.
+- Run `npm i` on the IDE terminal to install all dependencies.
 
 ## Usage
 
 - Open index.html in the client folder with live server to see the frontend.
 - Run `bash scripts/start.sh` to start the backend.
 - Run `bash scripts/stop.sh` to tear everything down.
+
+## Technologies
+
+### HTML/CSS
+
+We used HTML to structure the application and CSS to style it.
+
+### JavaScript/Express.js
+
+JavaScript was used in the client folder to fetch data from the API. It was used to create a REST API with `get` and `post` routes for users and posts. This allowed the application to:
+
+- fetch all posts,
+- publish a new post,
+- register a new user,
+- and deliver login functionality.
+
+### MongoDB
+
+We opted to use MongoDB to hold and persist our data.
+
+### Docker
+
+Docker was used to establish a connection to our database and API. We have installed scripts to help launch our server and tear it down.
